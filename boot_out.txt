@@ -1,0 +1,1 @@
+Adafruit CircuitPython 2c9fbb5 on 2019-02-24; Adafruit PyPortal with samd51j20
