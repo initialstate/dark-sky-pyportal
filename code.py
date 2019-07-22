@@ -58,29 +58,4 @@ while True:
             continue
 
     gfx.update_time()
-    time.sleep(30)  # wait 30 seconds before updating anything againlocaltile_refresh = None
-weather_refresh = None
-while True:
-    # only query the online time once per hour (and on first run)
-    if (not localtile_refresh) or (time.monotonic() - localtile_refresh) > 3600:
-        try:
-            print("Getting time from internet!")
-            pyportal.get_local_time()
-            localtile_refresh = time.monotonic()
-        except RuntimeError as e:
-            print("Some error occured, retrying! -", e)
-            continue
-
-    # only query the weather every 10 minutes (and on first run)
-    if (not weather_refresh) or (time.monotonic() - weather_refresh) > 600:
-        try:
-            value = pyportal.fetch()
-            print("Response is", value)
-            gfx.display_weather(value)
-            weather_refresh = time.monotonic()
-        except RuntimeError as e:
-            print("Some error occured, retrying! -", e)
-            continue
-
-    gfx.update_time()
     time.sleep(30)  # wait 30 seconds before updating anything again
