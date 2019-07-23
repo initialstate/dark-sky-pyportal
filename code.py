@@ -58,4 +58,4 @@ while True:
             continue
 
     gfx.update_time()
-    time.sleep(30)  # wait 30 seconds before updating anything again
+    time.sleep(60)  # wait 60 seconds before updating anything again
